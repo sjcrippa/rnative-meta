@@ -1,16 +1,17 @@
 import { StatusBar } from "expo-status-bar";
-import { ScrollView, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import { Main } from "./components/main";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <StatusBar style="light" />
-      <ScrollView>
+    <SafeAreaProvider>
+      <View style={styles.container}>
+        <StatusBar style="light" />
         <Main />
-      </ScrollView>
-    </View>
+      </View>
+    </SafeAreaProvider>
   );
 }
 
@@ -21,29 +22,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     paddingHorizontal: 12,
-  },
-  card: {
-    marginBottom: 42,
-  },
-  image: {
-    width: 107,
-    height: 147,
-    borderRadius: 10,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "#fff",
-    marginTop: 10,
-  },
-  description: {
-    fontSize: 16,
-    color: "#eee",
-  },
-  score: {
-    fontSize: 20,
-    fontWeight: "bold",
-    marginBottom: 10,
-    color: "green",
   },
 });

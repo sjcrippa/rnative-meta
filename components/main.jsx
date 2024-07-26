@@ -1,10 +1,13 @@
-import { StatusBar } from "expo-status-bar";
 import { useEffect, useState } from "react";
-import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import { ScrollView, View, ActivityIndicator } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+
 import { getLatestGames } from "../lib/getCritics";
+import { GameCard } from "./game-card";
 
 export function Main() {
   const [games, setGames] = useState([]);
+  const insets = useSafeAreaInsets(); // para limites de la pantalla, que funciona en ambos OS, ios y android
 
   useEffect(() => {
     getLatestGames().then((games) => {
@@ -13,52 +16,18 @@ export function Main() {
   }, []);
 
   return (
-    <View style={styles.container}>
-      <StatusBar style="light" />
-      <ScrollView>
-        {games.map((game) => (
-          <View key={game.slug} style={styles.card}>
-            <Image source={{ uri: game.image }} style={styles.image} />
-            <Text style={styles.title}>{game.title}</Text>
-            <Text style={styles.score}>{game.score}</Text>
-            <Text style={styles.description}>{game.description}</Text>
-          </View>
-        ))}
-      </ScrollView>
+    <View style={{ paddingTop: insets.top, paddingBottom: insets.bottom }}>
+      {
+        games.length === 0
+          ? (<ActivityIndicator size={'large'} />)
+          : (
+            <ScrollView>
+              {
+                games.map((game) => <GameCard key={game.slug} game={game} />)
+              }
+            </ScrollView>
+          )
+      }
     </View>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#000",
-    alignItems: "center",
-    justifyContent: "center",
-    paddingHorizontal: 12,
-  },
-  card: {
-    marginBottom: 42,
-  },
-  image: {
-    width: 107,
-    height: 147,
-    borderRadius: 10,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "#fff",
-    marginTop: 10,
-  },
-  description: {
-    fontSize: 16,
-    color: "#eee",
-  },
-  score: {
-    fontSize: 20,
-    fontWeight: "bold",
-    marginBottom: 10,
-    color: "green",
-  },
-});
+};
