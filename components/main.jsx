@@ -1,14 +1,29 @@
 import { StatusBar } from "expo-status-bar";
-import { ScrollView, StyleSheet, View } from "react-native";
+import { useEffect, useState } from "react";
+import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import { getLatestGames } from "../lib/getCritics";
 
-import { Main } from "./components/main";
+export function Main() {
+  const [games, setGames] = useState([]);
 
-export default function App() {
+  useEffect(() => {
+    getLatestGames().then((games) => {
+      setGames(games);
+    });
+  }, []);
+
   return (
     <View style={styles.container}>
       <StatusBar style="light" />
       <ScrollView>
-        <Main />
+        {games.map((game) => (
+          <View key={game.slug} style={styles.card}>
+            <Image source={{ uri: game.image }} style={styles.image} />
+            <Text style={styles.title}>{game.title}</Text>
+            <Text style={styles.score}>{game.score}</Text>
+            <Text style={styles.description}>{game.description}</Text>
+          </View>
+        ))}
       </ScrollView>
     </View>
   );
