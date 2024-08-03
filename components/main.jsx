@@ -19,10 +19,10 @@ export function Main() {
 
   return (
     <View style={{ paddingTop: insets.top, paddingBottom: insets.bottom }}>
-      <View style={{ marginVertical: 20 }}>
+      <View className='mx-5'>
         <Logo />
       </View>
-      <Link href='/about' className="text-blue-400 text-xl">
+      <Link href='/about' className="mx-5 text-blue-400 text-xl">
         Ir al about
       </Link>
       {
