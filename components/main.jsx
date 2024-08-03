@@ -5,6 +5,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { getLatestGames } from "../lib/getCritics";
 import { AnimatedGameCard, GameCard } from "./game-card";
 import { Logo } from "./logo";
+import { Link } from "expo-router";
 
 export function Main() {
   const [games, setGames] = useState([]);
@@ -21,6 +22,9 @@ export function Main() {
       <View style={{ marginVertical: 20 }}>
         <Logo />
       </View>
+      <Link href='/about' className="text-blue-400 text-xl">
+        Ir al about
+      </Link>
       {
         games.length === 0
           ? (<ActivityIndicator size={'large'} />)
