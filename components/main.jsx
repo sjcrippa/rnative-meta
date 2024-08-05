@@ -22,8 +22,12 @@ export function Main() {
       <View className='mx-5'>
         <Logo />
       </View>
-      <Link href='/about' className="mx-5 text-blue-400 text-xl">
-        Ir al about
+      <Link asChild href='/about'>
+        <Pressable>
+          <Text className="mx-5 text-blue-400 text-xl mt-24">
+            About
+          </Text>
+        </Pressable>
       </Link>
       {
         games.length === 0
