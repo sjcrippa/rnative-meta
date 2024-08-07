@@ -1,14 +1,16 @@
 import { Link } from "expo-router";
 import { Pressable, ScrollView, Text, View } from "react-native";
+import { HomeIcon } from "../components/icons";
 
 export default function About() {
   return (
     <ScrollView>
       <Link asChild href="/">
         <Pressable>
-          <Text className="mx-5 text-blue-400 text-xl mt-24">
-            Volver al inicio
-          </Text>
+          {/* {({pressed}) => (
+
+          )} */}
+          <HomeIcon />
         </Pressable>
       </Link>
 

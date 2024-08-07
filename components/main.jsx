@@ -3,7 +3,7 @@ import { FlatList, View, ActivityIndicator, Pressable, Text } from "react-native
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { getLatestGames } from "../lib/getCritics";
-import { AnimatedGameCard, GameCard } from "./game-card";
+import { AnimatedGameCard } from "./game-card";
 import { Logo } from "./logo";
 import { Link } from "expo-router";
 
