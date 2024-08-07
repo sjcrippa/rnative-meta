@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FlatList, View, ActivityIndicator } from "react-native";
+import { FlatList, View, ActivityIndicator, Pressable, Text } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { getLatestGames } from "../lib/getCritics";
@@ -24,7 +24,7 @@ export function Main() {
       </View>
       <Link asChild href='/about'>
         <Pressable>
-          <Text className="mx-5 text-blue-400 text-xl mt-24">
+          <Text className="mx-5 text-blue-400 text-xl mt-2">
             About
           </Text>
         </Pressable>
