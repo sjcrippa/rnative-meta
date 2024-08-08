@@ -20,14 +20,16 @@ export function Main() {
 
   return (
     <View style={{ paddingTop: insets.top, paddingBottom: insets.bottom }}>
-      <View className='mx-5'>
-        <Logo />
+      <View className='mx-5 flex-row justify-between items-center mb-4'>
+        <View>
+          <Logo />
+        </View>
+        <Link asChild href='/about'>
+          <Pressable className='active:opacity-50'>
+            <CircleInfoIcon />
+          </Pressable>
+        </Link>
       </View>
-      <Link asChild href='/about' className="mx-5 mt-5">
-        <Pressable className='active:opacity-50'>
-          <CircleInfoIcon />
-        </Pressable>
-      </Link>
       {
         games.length === 0
           ? (<ActivityIndicator size={'large'} />)
