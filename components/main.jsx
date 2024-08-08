@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { FlatList, View, ActivityIndicator, Pressable, Text } from "react-native";
+import { FlatList, View, ActivityIndicator, Pressable } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { getLatestGames } from "../lib/getCritics";
 import { AnimatedGameCard } from "./game-card";
 import { Logo } from "./logo";
 import { Link } from "expo-router";
+import { CircleInfoIcon } from "./icons";
 
 export function Main() {
   const [games, setGames] = useState([]);
@@ -22,11 +23,9 @@ export function Main() {
       <View className='mx-5'>
         <Logo />
       </View>
-      <Link asChild href='/about'>
-        <Pressable>
-          <Text className="mx-5 text-blue-400 text-xl mt-2">
-            About
-          </Text>
+      <Link asChild href='/about' className="mx-5 mt-5">
+        <Pressable className='active:opacity-50'>
+          <CircleInfoIcon />
         </Pressable>
       </Link>
       {
