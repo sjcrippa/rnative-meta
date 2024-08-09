@@ -1,0 +1,11 @@
+[
+  {
+    "applyTo": "web%3Fsort-5cb73e2a",
+    "headers": [
+      {
+        "name": "access-control-allow-origin",
+        "value": "*"
+      }
+    ]
+  }
+]
