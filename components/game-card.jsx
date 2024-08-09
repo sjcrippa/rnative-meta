@@ -9,8 +9,8 @@ const StyledPressable = styled(Pressable);
 
 export function GameCard({ game }) {
   return (
-    <Link href={`/${game.slug}`} asChild className="mt-5">
-      <StyledPressable className='active:opacity-50 border border-black active:border-white/50 mb-2 bg-slate-900 mx-4 p-4 rounded-xl'>
+    <Link href={`/${game.slug}`} asChild >
+      <StyledPressable className='active:opacity-50 border border-black active:border-white/50 mb-2 bg-slate-900 p-4 rounded-xl'>
         <View key={game.slug} className='flex-row gap-4'>
           <Image source={{ uri: game.image }} style={styles.image} />
           <View className='flex-shrink'>
