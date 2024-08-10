@@ -2,8 +2,8 @@ import { Link } from "expo-router";
 import { styled } from "nativewind";
 import { Pressable, ScrollView, Text, View } from "react-native";
 
-import Screen from "../components/screen";
-import { HomeIcon } from "../components/icons";
+import Screen from "../../components/screen";
+import { HomeIcon } from "../../components/icons";
 
 const StyledPressable = styled(Pressable);
 
@@ -25,4 +25,3 @@ export default function About() {
     </Screen>
   );
 }
-2;
